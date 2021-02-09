@@ -62,3 +62,17 @@
 .txt-description{
   text-overflow: ellipsis;
 }
+.btn-add-favorites{
+  padding: 0.5em;
+  border: 1px solid #dc3545;
+  background: #dc3545;
+  font-size: 20px;
+  border-radius:  .25em;
+  color: #FFF;
+  margin-top: 1em;
+}
+.disable-button{
+  pointer-events: none;
+  background: rgba(0,0,0,.5);
+  border: 1px solid rgba(0,0,0,.5);
+}

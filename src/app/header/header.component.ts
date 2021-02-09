@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComicServiceService } from "../comic-service.service";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public comicService: ComicServiceService) {  }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  showFavorites(){
+    console.log(this.comicService.comics = this.comicService.comicsFavorites)
+    console.log('showFavorites')
   }
 
 }

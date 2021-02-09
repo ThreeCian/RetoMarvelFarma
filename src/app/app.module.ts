@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import {MarvelApiService} from './marvel-api.service';
+import {ComicServiceService} from './comic-service.service';
 import {HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 
@@ -31,7 +32,7 @@ import {MatCardModule} from '@angular/material/card';
     MatToolbarModule,
     NgxPaginationModule
   ],
-  providers: [MarvelApiService],
+  providers: [MarvelApiService, ComicServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

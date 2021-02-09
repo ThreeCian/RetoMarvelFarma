@@ -1,15 +1,15 @@
-<div [ngClass]="{'show-popup': comics.length != 0}" class="modal" tabindex="-1">
+<div [ngClass]="{'show-popup': comicService.comics.length != 0}" class="modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <div class="contain-comic" *ngFor="let comic of comics">
+        <div class="contain-comic" *ngFor="let comic of comicService.comics">
           <div class="contain-img-comic">
             <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="">
           </div>
           <div class="contain-txt-comic">
             <h1 class="title-comic">{{comic.title}}</h1>
             <p class="txt-description">{{comic.description}}</p>
-            <button type="button" class="btn" data-bs-dismiss="modal" (click)="addFavorites(comic)">Agregar a Favoritos</button>
+            <button *ngIf="comicService.modalFavorites" [ngClass]="{'disable-button': itsInFavorites(comic)}" type="button" class="btn-add-favorites" (click)="addFavorites(comic)">Agregar a Favoritos</button>
           </div>
         </div>
       </div>

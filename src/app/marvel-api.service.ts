@@ -22,8 +22,7 @@ export class MarvelApiService {
   }
   getComics(parameter: string):any{
     return this.http.get<any>(this.service+parameter+this.endPoint).pipe(map((data: any)=>data.data.results))
-    
-   }
+  }
   
 
 }

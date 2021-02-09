@@ -1,6 +1,7 @@
 import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MarvelApiService } from "../marvel-api.service";
+import { ComicServiceService } from "../comic-service.service";
 
 
 
@@ -14,7 +15,7 @@ export class CharactersComponent implements OnInit {
   characters: any = [];
   comics:any = [];
   pages: number = 1;
-  constructor(public MarvelService: MarvelApiService) { }
+  constructor(public MarvelService: MarvelApiService, public comicService: ComicServiceService) { }
 
   popupComics(value: any){
     console.log(value)
@@ -42,7 +43,7 @@ export class CharactersComponent implements OnInit {
   showComics(parameter: string) {
     this.MarvelService.getComics('characters/'+parameter+'/comics').subscribe(
       (comics: any) => {
-        console.log(this.comics = comics);
+        console.log(this.comicService.comics = comics);
       }
     );
   }
