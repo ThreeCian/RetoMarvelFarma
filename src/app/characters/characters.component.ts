@@ -1,5 +1,7 @@
+import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { MarvelApiService } from '../marvel-api.service';
+import { MarvelApiService } from "../marvel-api.service";
+
 
 
 @Component({
@@ -9,24 +11,42 @@ import { MarvelApiService } from '../marvel-api.service';
 })
 export class CharactersComponent implements OnInit {
 
-  constructor(private MarvelService : MarvelApiService) { }
+  characters: any = [];
+  comics:any = [];
+  pages: number = 1;
+  constructor(public MarvelService: MarvelApiService) { }
 
-  Character = {
-    
+  popupComics(value: any){
+    console.log(value)
+    this.showComics(value.id.toString());
   }
+
+  description(data: any){
+    if(data.description == '' || data.description == null){
+      data.description = 'No hay una descripción para este HEROE'
+    }
+    return data.description
+  }
+
   ngOnInit(): void {
-    this.ShowHero();
+    this.showHeros();
   }
 
-  ShowHero(){
-    this.MarvelService.getData(this.Character).subscribe(
-      (res)=>{
-        console.log(res.json);
-      },
-      (err) =>console.log(err)
-    )
-
+  showHeros() {
+    this.MarvelService.getHeros('characters').subscribe(
+      (characters: any) => {
+        console.log(this.characters = characters);
+      }
+    );
+  }
+  showComics(parameter: string) {
+    this.MarvelService.getComics('characters/'+parameter+'/comics').subscribe(
+      (comics: any) => {
+        console.log(this.comics = comics);
+      }
+    );
   }
 
 
 }
+
