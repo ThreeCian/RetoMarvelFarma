@@ -1,8 +1,8 @@
-<mat-toolbar>
-    <img src="../../assets/images/marvel-282124.png" alt="Marvel" class="logo">
+<mat-toolbar class="d-flex justify-content-between">
+    <img src="../../assets/images/marvel-282124.png" alt="Marvel" class="logo ">
 
 
-    <button type="button" class="btn btn-secondary" (click)="showFavorites()">Favoritos</button>
-    <button type="button" class="btn btn-secondary" [ngClass]="{'hidden': comicService.comicsFavorites.length != 0}">Favoritos</button>
+    <button type="button" class="btn btn-secondary " (click)="showFavorites()">Favoritos</button>
+    
 
 </mat-toolbar>

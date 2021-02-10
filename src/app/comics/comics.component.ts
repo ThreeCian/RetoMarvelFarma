@@ -1,7 +1,7 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { MarvelApiService } from "../marvel-api.service";
-import { ComicServiceService } from "../comic-service.service";
+import { MarvelApiService } from "../services/marvel-api.service";
+import { ComicServiceService } from "../services/comic-service.service";
 
 @Component({
   selector: 'app-comics',
@@ -10,35 +10,32 @@ import { ComicServiceService } from "../comic-service.service";
 })
 export class ComicsComponent {
 
+  @Input() comics: any = []
 
-  @Input() comics:any = []
-  
-  constructor(public MarvelComics : MarvelApiService, public comicService : ComicServiceService) { }
-  test:boolean = false;
+  constructor(public MarvelComics: MarvelApiService, public comicService: ComicServiceService) { }
+  test: boolean = false;
 
+  ngOnInit(): void { }
 
-
-  ngOnInit(): void {}
-
-  closeModal(){
+  closeModal() {
     this.comicService.comics = []
     console.log(this.comicService.comics)
     this.comicService.modalFavorites = false
   }
-  addFavorites(data:any){
-    this.comicService.comicsFavorites.push(data)
-    console.log(this.comicService.comicsFavorites)
+  addFavorites(data: any) {
+    this.comicService.setComics(data);
   }
 
-  itsInFavorites(comic: any){
-    var index = this.comicService.comicsFavorites.indexOf(comic)
-    console.log(index)
-    if(index != -1){
-      return true
+  itsInFavorites(comic: any): boolean {
+    let boole = false;
+    for (let index = 0; index < this.comicService.getComics().length; index++) {
+      const comicFavorite = this.comicService.getComics()[index];
+      if (comicFavorite.digitalId === comic.digitalId) {
+        return true;
+      }
     }
-    return false
+    return boole;
+
   }
-
-
 
 }

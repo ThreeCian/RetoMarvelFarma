@@ -61,6 +61,8 @@
 }
 .txt-description{
   text-overflow: ellipsis;
+  max-height: 300px;
+  overflow: scroll;
 }
 .btn-add-favorites{
   padding: 0.5em;

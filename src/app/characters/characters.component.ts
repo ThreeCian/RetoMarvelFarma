@@ -1,9 +1,7 @@
-import { CompileShallowModuleMetadata } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
-import { MarvelApiService } from "../marvel-api.service";
-import { ComicServiceService } from "../comic-service.service";
-
-
+import { MarvelApiService } from "../services/marvel-api.service";
+import { ComicServiceService } from "../services/comic-service.service";
 
 @Component({
   selector: 'app-characters',
@@ -13,17 +11,16 @@ import { ComicServiceService } from "../comic-service.service";
 export class CharactersComponent implements OnInit {
 
   characters: any = [];
-  comics:any = [];
+  comics: any = [];
   pages: number = 1;
   constructor(public MarvelService: MarvelApiService, public comicService: ComicServiceService) { }
 
-  popupComics(value: any){
-    console.log(value)
+  popupComics(value: any) {
     this.showComics(value.id.toString());
   }
 
-  description(data: any){
-    if(data.description == '' || data.description == null){
+  description(data: any) {
+    if (data.description == '' || data.description == null) {
       data.description = 'No hay una descripción para este HEROE'
     }
     return data.description
@@ -36,14 +33,14 @@ export class CharactersComponent implements OnInit {
   showHeros() {
     this.MarvelService.getHeros('characters').subscribe(
       (characters: any) => {
-        console.log(this.characters = characters);
+        this.characters = characters;
       }
     );
   }
   showComics(parameter: string) {
-    this.MarvelService.getComics('characters/'+parameter+'/comics').subscribe(
+    this.MarvelService.getComics('characters/' + parameter + '/comics').subscribe(
       (comics: any) => {
-        console.log(this.comicService.comics = comics);
+        this.comicService.comics = comics;
       }
     );
   }

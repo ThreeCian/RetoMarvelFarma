@@ -13,11 +13,12 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  
 }
 .contain-all{
-  padding: 6em;
+  padding: 4em;
 }
 .card-character{
-  margin: 2em;
-  min-height: 200px;
+  margin: 1em;
+  min-height: 400px;
 }

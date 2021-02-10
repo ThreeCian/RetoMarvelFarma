@@ -1,8 +1,8 @@
 <div class="container-fluid row m-0 contain-all">
   <app-comics></app-comics>
   <div class="row justify-content-around">
-    <h5>Characters</h5>
-    <div class="card col-3 p-0 card-character"
+    <h1 class="mb-3 fw-bold">CHARACTERS</h1>
+    <div class="card col-4 p-0 card-character"
         *ngFor="let character of characters | paginate: { itemsPerPage: 10, currentPage: pages}">
         <div class="row-css">
 
@@ -20,8 +20,8 @@
             </div>
         </div>
     </div>
-
+<div class="text-center mt-5">
     <pagination-controls (pageChange)="pages = $event"></pagination-controls>
-    
+  </div>
   </div>
 </div>
