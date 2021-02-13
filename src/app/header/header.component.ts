@@ -10,11 +10,12 @@ export class HeaderComponent implements OnInit {
 
   constructor(public comicService: ComicServiceService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.comicService.getComics()
+  }
 
   showFavorites() {
-
-    console.log(this.comicService.comics = this.comicService.getComics())
+    this.comicService.modalFavorites = !this.comicService.modalFavorites
     console.log('showFavorites')
   }
 

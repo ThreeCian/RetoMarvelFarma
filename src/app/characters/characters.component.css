@@ -22,3 +22,53 @@
   margin: 1em;
   min-height: 400px;
 }
+.slider{
+  transition: all ease .5s;
+  background-color: rgba(197, 194, 194, 0.15);
+  transform: translateX(105%);
+  position: fixed;
+  overflow-y: scroll;
+  direction:rtl;
+  height: 94%;
+  right: 10px;
+  top: 64px;
+  padding: 3em 0;
+}
+.btn-trash{
+  position: absolute;
+  top: -15px;
+  right: -16px;
+  background-color: #000 !important;
+  color: #FFF !important;
+  border-radius: 50% !important;
+}
+.img-comic{
+  border-radius: 5% !important;
+  position: relative;
+}
+.card-fav{
+  width: 250px;
+  height: 400px;
+  margin-bottom: 5em;
+}
+
+.card-fav{
+  background-color: transparent;
+  border: none;
+}
+
+.title-comic{
+  color: #000;
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.show-favorites{
+  transform: translateX(0%) !important;
+}
+
+.show-favorites-container{
+  transform: translateX(0%) !important;
+}

@@ -20,22 +20,19 @@ export class ComicsComponent {
   closeModal() {
     this.comicService.comics = []
     console.log(this.comicService.comics)
-    this.comicService.modalFavorites = false
   }
   addFavorites(data: any) {
-    this.comicService.setComics(data);
+    this.comicService.comicsFavorites.push(data);
+    this.comicService.setComics()
   }
 
-  itsInFavorites(comic: any): boolean {
-    let boole = false;
-    for (let index = 0; index < this.comicService.getComics().length; index++) {
-      const comicFavorite = this.comicService.getComics()[index];
-      if (comicFavorite.digitalId === comic.digitalId) {
-        return true;
+  itsInFavorites(comic: any) {
+    let bool = false
+    this.comicService.comicsFavorites.forEach((element: any) => {
+      if (element.digitalId === comic.digitalId) {
+        bool = true
       }
-    }
-    return boole;
-
+    })
+    return bool
   }
-
 }

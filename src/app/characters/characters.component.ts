@@ -33,7 +33,7 @@ export class CharactersComponent implements OnInit {
   showHeros() {
     this.MarvelService.getHeros('characters').subscribe(
       (characters: any) => {
-        this.characters = characters;
+        this.comicService.characters = characters;
       }
     );
   }
@@ -43,6 +43,12 @@ export class CharactersComponent implements OnInit {
         this.comicService.comics = comics;
       }
     );
+  }
+  deleteComicOfFavorites(comic: any){
+    var index =  this.comicService.comicsFavorites.indexOf(comic)
+    this.comicService.comicsFavorites.splice(index, 1)
+    this.comicService.setComics()
+    console.log(comic, this.comicService.comicsFavorites)
   }
 
 

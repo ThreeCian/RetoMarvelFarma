@@ -17,22 +17,3 @@
     </div>
   </div>
 </div>
-<!-- <div [ngClass]="{'show-popup': comicService.comicsFavorites.length != 0}" class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="contain-comic" *ngFor="let comic of comicService.comics">
-          <div class="contain-img-comic">
-            <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="">
-          </div>
-          <div class="contain-txt-comic">
-            <h1 class="title-comic">{{comic.title}}</h1>
-            <p class="txt-description">{{comic.description}}</p>
-            <button  [ngClass]="{'disable-button': itsInFavorites(comic)}" type="button" class="btn-add-favorites" (click)="addFavorites(comic)">Delete Favorites</button>
-          </div>
-        </div>
-      </div>
-      <button type="button" class="btn-close" (click)="closeModal()"></button>
-    </div>
-  </div>
-</div> -->

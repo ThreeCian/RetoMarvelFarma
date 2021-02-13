@@ -9,17 +9,17 @@ export class ComicServiceService {
 
   comicsFavorites: any = [];
 
+  characters: any = [];
+
   comics: any = [];
 
   modalFavorites: boolean = false;
 
   getComics() {
-
-    this.comicsFavorites = JSON.parse(localStorage.getItem("comicsFavorites")!);
-    return this.comicsFavorites;
+    this.comicsFavorites = JSON.parse(localStorage.getItem("comicsFavorites")!) == null ? [] : JSON.parse(localStorage.getItem("comicsFavorites")!);
   }
-  setComics(comic: any) {
-    this.comicsFavorites.push(comic);
+  setComics() {
+    localStorage.removeItem('comicsFavorites');
     localStorage.setItem("comicsFavorites", JSON.stringify(this.comicsFavorites))
   }
 }
