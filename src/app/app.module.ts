@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import {MarvelApiService} from './services/marvel-api.service';
 import {ComicServiceService} from './services/comic-service.service';
@@ -30,7 +31,8 @@ import {MatCardModule} from '@angular/material/card';
     HttpClientModule,
     MatCardModule,
     MatToolbarModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [MarvelApiService, ComicServiceService],
   bootstrap: [AppComponent]

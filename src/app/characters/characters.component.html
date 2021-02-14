@@ -1,19 +1,21 @@
-<div [ngClass]="{'show-favorites-container': comicService.modalFavorites}" style="transform: translateX(13%); transition: all ease .5s; padding-top: 64px !important" class="container-fluid row m-0 p-0">
+<div [ngClass]="{'show-favorites-container': comicService.modalFavorites}"
+  style="transform: translateX(13%); transition: all ease .5s; padding-top: 64px !important"
+  class="container-fluid row m-0 p-0">
   <div class="col-9 contain-all">
 
     <div class="row justify-content-around">
       <h1 class="mb-3 fw-bold">CHARACTERS</h1>
       <div class="card col-4 p-0 card-character"
-        *ngFor="let character of comicService.characters | paginate: { itemsPerPage: 10, currentPage: pages}">
-        <div class="row-css">
+        *ngFor="let character of comicService.charactersBrowse | paginate: { itemsPerPage: 10, currentPage: pages}">
+        <div class="row">
 
-          <div class="contain-img col-6">
+          <div class="col-4">
             <img class="card-img-left col-6 img-character"
               src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{characters.name}}">
           </div>
 
-          <div class=" card-body col-6 ">
-            <h5 class="card-title ">{{character.name}}</h5>
+          <div class=" card-body col-8 ">
+            <h1 class="card-title ">{{character.name}}</h1>
             <p class="card-text">{{character.comics.items.name}}</p>
             <p class="card-text">{{description(character)}}</p>
 
@@ -28,13 +30,14 @@
 
 
   </div>
-  
+
 </div>
 <div class="col-3 slider" [ngClass]="{'show-favorites': comicService.modalFavorites}">
   <h1 class="mb-3 fw-bold text-center">FAVORITES</h1>
   <div class="card card-fav mx-auto" *ngFor="let comic of comicService.comicsFavorites">
     <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" class="card-img-top img-comic" alt="...">
     <h5 class="title-comic text-center">{{comic.title}}</h5>
-    <button type="button" class="btn btn-trash" (click)="deleteComicOfFavorites(comic)"><i class="fas fa-trash-alt"></i></button>
+    <button type="button" class="btn btn-trash" (click)="deleteComicOfFavorites(comic)"><i
+        class="fas fa-trash-alt"></i></button>
   </div>
 </div>

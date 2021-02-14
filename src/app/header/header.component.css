@@ -4,3 +4,12 @@
 .hidden{
     display: none;
 }
+.btn-shop{
+  background-color: #FFF !important;
+  color: #dc3545 !important;
+  border-radius: 50% !important;
+  padding: .375rem .5rem !important;
+}
+.form-control{
+  width: 300px !important;
+}

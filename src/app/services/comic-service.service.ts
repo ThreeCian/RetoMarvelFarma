@@ -11,6 +11,10 @@ export class ComicServiceService {
 
   characters: any = [];
 
+  charactersBrowse: any = [];
+
+  browse: string = '';
+
   comics: any = [];
 
   modalFavorites: boolean = false;
@@ -21,5 +25,15 @@ export class ComicServiceService {
   setComics() {
     localStorage.removeItem('comicsFavorites');
     localStorage.setItem("comicsFavorites", JSON.stringify(this.comicsFavorites))
+  }
+  browseChange(param: any){
+    param = param.toLowerCase();
+    this.charactersBrowse = this.characters.filter((character:any) => {
+      character.name = character.name.toLowerCase()
+      if(character.name.includes(param)){
+        return true
+      }
+      return false
+    })
   }
 }

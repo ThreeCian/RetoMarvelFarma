@@ -15,25 +15,26 @@ export class CharactersComponent implements OnInit {
   pages: number = 1;
   constructor(public MarvelService: MarvelApiService, public comicService: ComicServiceService) { }
 
+  ngOnInit(): void {
+    this.showHeros();
+  }
+
   popupComics(value: any) {
     this.showComics(value.id.toString());
   }
 
   description(data: any) {
     if (data.description == '' || data.description == null) {
-      data.description = 'No hay una descripción para este HEROE'
+      data.description = 'There is no a description to this character'
     }
     return data.description
-  }
-
-  ngOnInit(): void {
-    this.showHeros();
   }
 
   showHeros() {
     this.MarvelService.getHeros('characters').subscribe(
       (characters: any) => {
         this.comicService.characters = characters;
+        this.comicService.charactersBrowse = characters;
       }
     );
   }
@@ -44,11 +45,10 @@ export class CharactersComponent implements OnInit {
       }
     );
   }
-  deleteComicOfFavorites(comic: any){
-    var index =  this.comicService.comicsFavorites.indexOf(comic)
+  deleteComicOfFavorites(comic: any) {
+    var index = this.comicService.comicsFavorites.indexOf(comic)
     this.comicService.comicsFavorites.splice(index, 1)
     this.comicService.setComics()
-    console.log(comic, this.comicService.comicsFavorites)
   }
 
 

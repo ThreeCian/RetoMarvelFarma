@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ComicServiceService } from "../services/comic-service.service";
 
 @Component({
@@ -6,6 +6,7 @@ import { ComicServiceService } from "../services/comic-service.service";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
 
   constructor(public comicService: ComicServiceService) { }
@@ -16,7 +17,6 @@ export class HeaderComponent implements OnInit {
 
   showFavorites() {
     this.comicService.modalFavorites = !this.comicService.modalFavorites
-    console.log('showFavorites')
   }
 
 }

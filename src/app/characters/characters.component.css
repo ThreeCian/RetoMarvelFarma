@@ -1,26 +1,17 @@
 .img-character{
   width: 170px;
   height: 170px;
-  position: absolute;
-  top: -2em;
-  left: -2em;
-  border-radius:50%;
-}
-.contain-img{
   position: relative;
-}
-.row-css{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  
+  top: -1em;
+  left: -2.7em;
+  border-radius:50%;
 }
 .contain-all{
   padding: 4em;
 }
 .card-character{
   margin: 1em;
-  min-height: 400px;
+  min-height: 300px;
 }
 .slider{
   transition: all ease .5s;

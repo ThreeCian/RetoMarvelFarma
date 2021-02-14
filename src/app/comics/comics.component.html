@@ -9,11 +9,13 @@
           <div class="contain-txt-comic">
             <h1 class="title-comic">{{comic.title}}</h1>
             <p class="txt-description">{{comic.description}}</p>
-            <button  [ngClass]="{'disable-button': itsInFavorites(comic)}" type="button" class="btn-add-favorites" (click)="addFavorites(comic)">Agregar a Favoritos</button>
+            <button [ngClass]="{'disable-button': itsInFavorites(comic)}" type="button" class="btn-add-favorites"
+              (click)="addFavorites(comic)">Agregar a Favoritos</button>
           </div>
         </div>
       </div>
       <button type="button" class="btn-close" (click)="closeModal()"></button>
+      <button type="button" class="btn h3 bt" (click)="setThreeRandomsComics()">Comics al azar</button>
     </div>
   </div>
 </div>
