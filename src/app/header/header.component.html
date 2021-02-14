@@ -1,12 +1,11 @@
-<mat-toolbar class="d-flex justify-content-between" style="position: fixed; z-index: 1000;">
+<mat-toolbar class="d-flex justify-content-between head">
     <img src="../../assets/images/marvel-282124.png" alt="Marvel" class="logo ">
 
     <div style="display: flex;">
-        <input class="form-control" style="width: 400px !important" style="margin-right: 3em !important" type="search"
-            placeholder="Search" [(ngModel)]="comicService.browse" (ngModelChange)="comicService.browseChange($event)">
-        <div style="cursor: pointer;" class="d-flex" (click)="showFavorites()">
-            <img src="../../assets/images/ICONS/btn-favourites-primary.png"
-                style="border-radius: 50%; margin-right: 0.5em; " alt="">
+        <input class="form-control" type="search" placeholder="Search" [(ngModel)]="comicService.browse"
+            (ngModelChange)="comicService.browseChange($event)">
+        <div class="d-flex" (click)="showFavorites()">
+            <img class="favv" src="../../assets/images/ICONS/btn-favourites-primary.png" alt="">
             <h3 class="pt-1">Favorites</h3>
         </div>
     </div>

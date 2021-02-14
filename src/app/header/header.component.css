@@ -4,6 +4,10 @@
 .hidden{
     display: none;
 }
+.head{
+  position: fixed; 
+  z-index: 1000;
+}
 .btn-shop{
   background-color: #FFF !important;
   color: #dc3545 !important;
@@ -11,5 +15,14 @@
   padding: .375rem .5rem !important;
 }
 .form-control{
-  width: 300px !important;
+  width: 400px !important;
+  margin-right: 3em !important;
+}
+.d-flex{
+  cursor: pointer;
+}
+
+.favv{
+  border-radius: 50%; 
+  margin-right: 0.5em; 
 }
